@@ -23,11 +23,13 @@ def index_page(request):
 
 
 
+
 if __name__ == '__main__':
     with Configurator() as config:
+        config.add_static_view('static', 'static', cache_max_age=3600)
         config.add_route('index', '/')
         config.add_route('order', '/order/')
         config.include('pyramid_jinja2')
         config.scan()
         app = config.make_wsgi_app()
-    serve(app, host='0.0.0.0', port=3001)
+    serve(app, host='0.0.0.0', port=3002)

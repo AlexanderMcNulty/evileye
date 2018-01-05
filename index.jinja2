@@ -41,148 +41,64 @@
     <div style="display:inline-block;">
      <h6 id="orderpanel" style="background-color:pink; padding:10px; display:inline;margin:5px;">Order Now</h6>
     </div>
-  </div>
-  <div style="max-width:750px; margin:0 auto;">
+  </div> 
+
+{% set catalog = [
+
+    ('/NervanaLemonade',
+     'Nervana Lemonade', 
+     'Nervana lemonade is paired with a stubble sweet strawberry flavor, that will take you into a state of deep bliss. Sweet and refreshing Nervana is my personal all day vape.',
+     ['Lemonade','Strawberry','Tangerine','Sweet'],
+     'nervanlemonade-template.jpg'
+    ),
+
+    ('/UglyApple',
+     'Ugly Apple', 
+     'Sour apple paired with a touch of peach to add sweetness, Ugly Apple is a crisp and refreshing vape.', 
+     ['Apple','Peach','Sour'],
+     'uglyapple-template.jpg'
+    ),
+
+    ('/BuffBerry',
+     'Buff Berry',
+     'Buff berry is a sweet candy like strawberry thats is sure to satisty your sweet tooth.',
+     ['Strawberry', 'Candy', 'Sweet'],
+     'buffberry-template.jpg'
+    ),
+    
+    ('/Squaremellon',
+     'Squaremellon',
+'Squaremelon is remincent of a picnic of a day on the beach. You would have to be a square not to try this one.', 
+     ['watermellon', 'Sweet'],
+     'squaremelon-template.jpg'
+    ),
    
-  </div>
-   
-   
-   </div>
+    ('/EvilTreat',
+     'Evil Treat',
+     'Eval Treat is a Lcyhee juice that is paired with mango and tangerine. These falvors come together to make delisious treat.', 
+     ['Lychee', 'Mango', 'Tangerine', 'Sweet', 'Candy'],
+     'evileye-templates.jpg'    
+    )
+]
+%}
     
+{% for href, title, description, flavors, image in catalog %} 
     <div style="padding:5%">
-     <h5 class="info">Nervana Lemonade</h6>
+     <h5 class="info">{{ title|e }}</h6>
      <div style="display:inline;">
       <p display:inline;>
-       <img class="image01" src="opener.gif" alt="Smiley face" width="100%"/>
+       <img class="image01" src="http://45.55.24.80:3002/static/{{ image|safe  }}" alt="Smiley face" width="100%"/>
        <div style="display:inline;margin:20px;padding:20px;">
-        <p class="info split">Nervana Lemonade is paired with a subtle strawbearry and tangerine flavor, that will take your mouth into a state of deap bliss. Sweet, tangy, and refreshing Nervana Lemonade is a must have juice. </p>
-         <span class="info">- Lemonade</span></br>
-         <span class="info">- Strawberry</span></br>
-         <span class="info">- Touch of Tangerines </span></br>
+        <p class="info split">{{ description|e }} </p>
+          {% for flavor in flavors %}
+             <span class="info">-{{ flavor|e }}</span></br>
+          {% endfor %}
         </p>
        </div>
       </p>
      </div>
     </div>
-        <div style="padding:5%">
-     <h5 class="info">Nervana Lemonade</h5>
-     <div style="display:inline;">
-      <p display:inline;>
-       <img src="opener.gif" alt="Smiley face" width="100%" style="max-width:300px;float:left;margin:0px 20px 0px 0px; display:inline-block;verticle-align:top;"/>
-       <div style="display:inline;margin:20px;padding:20px;">
-        <p style="display">Nervana Lemonade is paired with a subtle strawbearry and tangerine flavor, that will take your mouth into a state of deap bliss. Sweet, tangy, and refreshing Nervana Lemonade is a must have juice. </p>
-         <span>- Lemonade</span></br>
-         <span>- Strawberry</span></br>
-         <span>- Touch of Tangerines </span></br>
-        </p>
-       </div>
-      </p>
-     </div>
-    </div>
-    
-    </hr>
-    
-    <div style="padding:5%">
-     <h6>Nervana Lemonade</h6>
-     <div style="display:inline;">
-      <p display:inline;>
-       <img src="opener.gif" alt="Smiley face" width="100%" style="max-width:300px;float:left;margin:0px 20px 0px 0px; display:inline-block;verticle-align:top;"/>
-       <div style="display:inline;margin:20px;padding:20px;">
-        <p style="display">Nervana Lemonade is paired with a subtle strawbearry and tangerine flavor, that will take your mouth into a state of deap bliss. Sweet, tangy, and refreshing Nervana Lemonade is a must have juice. </p>
-         <span>- Lemonade</span></br>
-         <span>- Strawberry</span></br>
-         <span>- Touch of Tangerines </span></br>
-        </p>
-       </div>
-      </p>
-     </div>
-    </div>
-    
-    </hr>
-    
-    <div style="padding:5%">
-     <h6>Nervana Lemonade</h6>
-     <div style="display:inline;">
-      <p display:inline;>
-       <img src="opener.gif" alt="Smiley face" width="100%" style="max-width:300px;float:left;margin:0px 20px 0px 0px; display:inline-block;verticle-align:top;"/>
-       <div style="display:inline;margin:20px;padding:20px;">
-        <p style="display">Nervana Lemonade is paired with a subtle strawbearry and tangerine flavor, that will take your mouth into a state of deap bliss. Sweet, tangy, and refreshing Nervana Lemonade is a must have juice. </p>
-         <span>- Lemonade</span></br>
-         <span>- Strawberry</span></br>
-         <span>- Touch of Tangerines </span></br>
-        </p>
-       </div>
-      </p>
-     </div>
-    </div>
-    
-    <hr/>
-    
-    <div style="padding:5%">
-     <h6>Nervana Lemonade</h6>
-     <div style="display:inline;">
-      <p display:inline;>
-       <img src="opener.gif" alt="Smiley face" width="100%" style="max-width:300px;float:left;margin:0px 20px 0px 0px; display:inline-block;verticle-align:top;"/>
-       <div style="display:inline;margin:20px;padding:20px;">
-        <p style="display">Nervana Lemonade is paired with a subtle strawbearry and tangerine flavor, that will take your mouth into a state of deap bliss. Sweet, tangy, and refreshing Nervana Lemonade is a must have juice. </p>
-         <span>- Lemonade</span></br>
-         <span>- Strawberry</span></br>
-         <span>- Touch of Tangerines </span></br>
-        </p>
-       </div>
-      </p>
-     </div>
-    </div>
-    
-    
-<!--    
-    <div style="padding:5%">
-     <h6>Ugly Apple</h6>
-     <img src="opener.gif" alt="Smiley face" width="30%" style="margin:0 auto; display:inline-block;"/>
-     <div style="display:inline;margin:20px;padding:20px;">
-      <p>Ugly Apple is a sour apple with a touch of peach to add some sweatness. Sour yet sweat, Ugly Apple is sure to satisfy your tate buds.</p>
-      <ul>
-        <li>Apple</li>
-        <li>Peach</li>
-        <li></li>
-      </ul>
-     </div>
-    </div>
-    
-    <hr/>
-    
-    <div style="padding:5%">
-     <h6>Buff Berry</h6>
-     <div style="display:inline;">
-      <img src="opener.gif" alt="Smiley face" width="30%" style="display:inline-block;"/>
-     </div>
-     <div style="display:inline;">
-      <span style="display:inline; max-width:300px;">Buff Berry is a sweet and pungent strawbeary that is sure to satistfy your sweet touth. </span>
-      <ul  style="display:inline;">
-        <li>Straberry</li>
-        <li>Hint of apple</li>
-        <li>Sweet</li>
-      </ul>
-     </div>
-    </div>
-    
-    <hr/>
-    
-    <div style="padding:5%">
-     <h6>Watermelon</h6>
-     <img src="opener.gif" alt="Smiley face" width="30%" style="margin:0 auto; display:inline-block;"/>
-     <div style="display:inline;">
-      <p>Fresh, juicy, and sweet watermelon is reminicent of a picnic or day on the beach. </p>
-      <p></p>
-      <ul>
-        <li>Watermelon</li>
-        <li>Sweet</li>
-        
-      </ul>
-     </div>
-    </div>
-    
- -->
+{% endfor %}
     
     <hr/>
     
