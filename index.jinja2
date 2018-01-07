@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html>
- <head>
-  
+ <head>  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
   <style>
   body{
    font-family:san-serif !important;
-   background-color:#222 !important;
-   color:#d438de !important;
+   background-color:#ddd !important;
+   color:#333 !important;
+  }
+  .header{
+   positi
+on:fixed;
+   max-width:750; 
+   background-color:white;
+   padding:0px;
+   box-shadow:1px 2px 3px #333;
   }
   .info{
-   background-color:#111;
+   background-color:#ffffff03;
   }
   .split{
    
@@ -24,32 +32,103 @@
    margin-bottom:5px;
    margin-left:5px;
   }
+  @media screen and (max-width:500px){
+    .image01{
+        width:100% !important;
+        max-width:500px;
+        margin-left:0px;
+    }
+    .item-block-inner{
+        display:block;
+    }
+  } 
+  @media screen and (min-width:500px){
+    .item-block{
+        height:490px;
+    }
+  } 
+
   </style>
  </head>
  
  <body style="background-color:#eeeeee; margin:0 auto; color:#333;">
-  <div style="max-width:750; 
-              margin:0 auto;
-              position:fixed;
-              background-color:white;
-              padding:0px;
-              box-shadow:1px 2px 3px #333;
-              ">
+
+{% set order_bar = [
+          ('Flavor',['Nirvana Lemonade','Ugly Apple','Squaremelon','Buff Berry','Evil Treat']),
+          ('Size',['60','120']),
+          ('Nic(Mg/Ml)',['2','3','6','12']),
+          ('VG:PG',['MAX VG','80/20','70/30']),
+          ('Menthol',['Strong', 'Light', 'None'])
+] -%}
+<div id='lining1' style="display:none;" class="container-fluid header">
+  <div class="row">
+  {% for title, options in order_bar %}
+    <div class="col">
+        <label>{{ title|e }}</label>
+        <select id="{{ title|safe }}">
+          {% for option in options %}
+              <option value="{{ option|safe }}">{{ option|e }}</option>
+          {% endfor %}
+        </select>
+     </a>
+    </div>
+  {% endfor %}
+  <input value="your email here" id="email"></input>
+  </div>
+  <a id="order" href="#"><h6 style="background-color:pink; padding:10px; display:inline;margin:5px;">Order Now</h6>
+  </a>
+</div>
+  <div class="header" style="">
     <div style="background-color:white;display:inline-block;">
      <h4 style="font-weight:300; margin:0px 0px 0px 9px;">Evil Eye Juice</h4>
     </div>
     <div style="display:inline-block;">
-     <h6 id="orderpanel" style="background-color:pink; padding:10px; display:inline;margin:5px;">Order Now</h6>
+     <a id="orderpanel" href="#"><h6 style="background-color:pink; padding:10px; display:inline;margin:5px;">Order Now</h6>
+     </a>
     </div>
   </div> 
+</div>
+
+  <script>
+    
+       document.getElementById('orderpanel').addEventListener("click", function(){
+            console.log('what');
+            x = document.getElementById("lining1");
+                if (x.style.display !== "block") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        });
+
+
+    document.getElementById('order').onclick = function() {
+        var f = document.getElementById("Flavor");
+        var s = document.getElementById("Size");
+        var n = document.getElementById("Nic(Mg/Ml)");
+        var v = document.getElementById("VG:PG");
+        var m = document.getElementById("Menthol");
+        var e = document.getElementById("email");
+        var cf = f.options[f.selectedIndex].value; 
+        var cs = s.options[s.selectedIndex].value; 
+        var cn = n.options[n.selectedIndex].value; 
+        var cv = v.options[v.selectedIndex].value; 
+        var cm = m.options[m.selectedIndex].value;
+        var ce = e.value; 
+        var path = cf + '\n' + cs + '\n' +  cn + '\n' + cv + '\n' + cm;
+        emailjs.send("gmail","template_dqxyDdZF",{to_name:JSON.stringify(ce), message_html: path}); alert('Order submitted');  
+}
+  </script>
+
+
 
 {% set catalog = [
 
-    ('/NervanaLemonade',
-     'Nervana Lemonade', 
-     'Nervana lemonade is paired with a stubble sweet strawberry flavor, that will take you into a state of deep bliss. Sweet and refreshing Nervana is my personal all day vape.',
+    ('/NirvanaLemonade',
+     'Nirvana Lemonade', 
+     'Nirvana lemonade is paired with a stubble sweet strawberry flavor, that will take you into a state of deep bliss. Sweet and refreshing Nirvana is my personal all day vape.',
      ['Lemonade','Strawberry','Tangerine','Sweet'],
-     'nervanlemonade-template.jpg'
+     'nl.jpg'
     ),
 
     ('/UglyApple',
@@ -83,12 +162,11 @@
 %}
     
 {% for href, title, description, flavors, image in catalog %} 
-    <div style="padding:5%">
-     <h5 class="info">{{ title|e }}</h6>
-     <div style="display:inline;">
-      <p display:inline;>
+    <div class="item-block" style="margin:5%;">
+      <p>
        <img class="image01" src="http://45.55.24.80:3002/static/{{ image|safe  }}" alt="Smiley face" width="100%"/>
        <div style="display:inline;margin:20px;padding:20px;">
+        <h5 class="info">{{ title|e }}</h6>
         <p class="info split">{{ description|e }} </p>
           {% for flavor in flavors %}
              <span class="info">-{{ flavor|e }}</span></br>
@@ -96,22 +174,22 @@
         </p>
        </div>
       </p>
-     </div>
     </div>
 {% endfor %}
-    
-    <hr/>
-    
-    <p>ANDREW - PLEASE ENTER CONTENT HERE</p>
-    <p>ANDREW - PLEASE ENTER CONTENT HERE</p>
-    <p>ANDREW - PLEASE ENTER CONTENT HERE</p>
-    <p>ANDREW - PLEASE ENTER CONTENT HERE</p>
-    
-    <p>ANDREW - PLEASE ENTER CONTENT HERE</p>
-    <p>ANDREW - PLEASE ENTER CONTENT HERE</p>
-    <p>ANDREW - PLEASE ENTER CONTENT HERE</p>
-    <p>ANDREW - PLEASE ENTER CONTENT HERE</p>
    </div>
-  </body>
+
+
+    <div style="background-color:#111;margin-top:30px;padding-top:30px;height:30px;width:100%">
+````````````````````````````````````````````````````````````````````````````````</div>
+
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function(){
+        emailjs.init("user_k5zt8avAVHLpLLNCiyg6b");
+    })();
+</script>
+
+
+</body>
  </html>
  
