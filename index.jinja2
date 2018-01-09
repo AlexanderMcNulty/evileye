@@ -1,41 +1,64 @@
 <!DOCTYPE html>
 <html>
  <head>  
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="affordable ejuice, ejuice for crypto, local and shipped ejuice, safe ejuice, vape fluid, vape juice">
+    <meta name="author" content="EvilEyeJuice Team">
+    <title>evileyejuice.com, custom flavor ejuice, affordible ejuice</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112160961-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-112160961-1');
+    </script>
+
+
+
   <style>
-  body{
-   font-family:san-serif !important;
-   color:#333 !important;ckground: rgba(252,236,252,1);
-background: -moz-linear-gradient(left, rgba(252,236,252,1) 0%, rgba(251,166,225,1) 35%, rgba(253,137,215,1) 52%, rgba(255,124,216,1) 100%);
-background: -webkit-gradient(left top, right top, color-stop(0%, rgba(252,236,252,1)), color-stop(35%, rgba(251,166,225,1)), color-stop(52%, rgba(253,137,215,1)), color-stop(100%, rgba(255,124,216,1)));
-background: -webkit-linear-gradient(left, rgba(252,236,252,1) 0%, rgba(251,166,225,1) 35%, rgba(253,137,215,1) 52%, rgba(255,124,216,1) 100%);
-background: -o-linear-gradient(left, rgba(252,236,252,1) 0%, rgba(251,166,225,1) 35%, rgba(253,137,215,1) 52%, rgba(255,124,216,1) 100%);
-background: -ms-linear-gradient(left, rgba(252,236,252,1) 0%, rgba(251,166,225,1) 35%, rgba(253,137,215,1) 52%, rgba(255,124,216,1) 100%);
-background: linear-gradient(to right, rgba(252,236,252,1) 0%, rgba(251,166,225,1) 35%, rgba(253,137,215,1) 52%, rgba(255,124,216,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcecfc', endColorstr='#ff7cd8', GradientType=1 );
-    
+body{
+   background-color:#000000;
+   color:#444;
+}
+h5.info{
+   color:pink;
+}
+  .price1{
+    color:#eee;
   }
   .header{
    position:fixed;
    max-width:750; 
-   background-color:white;
+   background-color:#fff;
+   color:black;
    padding:0px;
    box-shadow:1px 2px 3px #333;
+  }
+  .header-spacer{
+   height:9vh;
+   width:100%;
   }
   .info{
    background-color:#ffffff03;
   }
-  .split{
-   
+  .background{
+   background-color:#0000009c;
+   position:fixed;
+   height:100vh;
+   width:100%;
+   z-index:2;
   }
   .image01{
    max-width:280px;
-   float:left;
-   margin:0px 20px 0px 0px; 
+   float:right;
    display:inline-block;
    verticle-align:top;
-   box-shadow:9px 14px 0px #0009;
-   margin-bottom:5px;
+   margin-bottom:8px;
    margin-left:5px;
   }
   @media screen and (max-width:500px){
@@ -48,48 +71,59 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcecfc', endC
         display:block;
     }
   } 
-  @media screen and (min-width:500px){
+  @6media screen and (min-width:500px){
     .item-block{
         height:490px;
     }
   } 
-
+  #lining1{
+    top: 11.5vh;
+    padding:5px 10px 5px 5px
+  }
+  .line-item{
+    margin: 4px 0px;
+}
   </style>
  </head>
  
- <body style="background-color:#eeeeee; margin:0 auto; color:#333;">
-
+ <body class="" style=" margin:0 auto; color:#666;">
+<div id="backdrop" class="">
+</div>
 {% set order_bar = [
-          ('Flavor',['Nirvana Lemonade','Ugly Apple','Squaremelon','Buff Berry','Evil Treat']),
-          ('Size',['60','120']),
-          ('Nic(Mg/Ml)',['2','3','6','12']),
-          ('VG:PG',['MAX VG','80/20','70/30']),
-          ('Menthol',['Strong', 'Light', 'None'])
+          ('Flavor',['', 'Nirvana Lemonade','Ugly Apple','Squaremelon','Buff Berry','Evil Treat']),
+          ('Size',['', '60','120']),
+          ('Nic(Mg/Ml)',['','2','3','6','12']),
+          ('VG:PG',['','MAX VG','80/20','70/30']),
+          ('Menthol',['', 'Strong', 'Light', 'None'])
 ] -%}
-<div id='lining1' style="display:none;" class="container-fluid header">
-  <div class="row">
+<div id='lining1' style="display:none;z-index:3" class="container-fluid header">
+  <h5>EvilEyeJuice.com is currently only structured to make local sales in San Jose and the San Francisco Bay Area. If you would like to make a purchase, regardless of location, please fill in the form below. We will contact you as soon as possible.</h5> 
+  <div class="line-item">
   {% for title, options in order_bar %}
-    <div class="col">
+    <div class="order-item">
         <label>{{ title|e }}</label>
         <select id="{{ title|safe }}">
           {% for option in options %}
               <option value="{{ option|safe }}">{{ option|e }}</option>
           {% endfor %}
         </select>
-     </a>
     </div>
   {% endfor %}
-  <input value="your email here" id="email"></input>
+  <div class="order-item">
+      <label>Email address:</label>
+      <input value="" placeholder="e-mail address" id="email"></input>
+      </div>
+      </br>
+         <a id="order" href="#"><h6 style="background-color:#ffc107; padding:20px; display:inline;margin:5px;;">Submit Order</h6>
+      </a>
   </div>
-  <a id="order" href="#"><h6 style="background-color:pink; padding:10px; display:inline;margin:5px;">Order Now</h6>
-  </a>
 </div>
-  <div class="header" style="">
+  <div class="header" style="z-index:3;">
     <div style="background-color:white;display:inline-block;">
      <h4 style="font-weight:300; margin:0px 0px 0px 9px;">Evil Eye Juice</h4>
     </div>
     <div style="display:inline-block;">
-     <a id="orderpanel" href="#"><h6 style="background-color:pink; padding:10px; display:inline;margin:5px;">Order Now</h6>
+  <a id="orderpanel" href="#"><h6 style="background-color:pink; padding:10px; display:inline;margin:5px;">Create Order</h6>
      </a>
     </div>
   </div> 
@@ -100,12 +134,16 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcecfc', endC
        document.getElementById('orderpanel').addEventListener("click", function(){
             console.log('what');
             x = document.getElementById("lining1");
-                if (x.style.display !== "block") {
+            y = document.getElementById("backdrop");
+            if (x.style.display !== "block") {
                 x.style.display = "block";
+                y.classList.add("background");
             } else {
                 x.style.display = "none";
+                y.classList.remove("background")
             }
         });
+
 
 
     document.getElementById('order').onclick = function() {
@@ -132,7 +170,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcecfc', endC
 
     ('/NirvanaLemonade',
      'Nirvana Lemonade', 
-     'Nirvana lemonade is paired with a stubble sweet strawberry flavor, that will take you into a state of deep bliss. Sweet and refreshing Nirvana is my personal all day vape.',
+     'Nirvana lemonade, this is our best selling vape juice ejuice. It is paired with a stubble sweet strawberry flavor, that will take you into a state of deep bliss. Sweet and refreshing Nirvana is my personal all day vape.',
      ['Lemonade','Strawberry','Tangerine','Sweet'],
      'nl.jpg'
     ),
@@ -166,20 +204,27 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcecfc', endC
     )
 ]
 %}
-    
+   
 {% for href, title, description, flavors, image in catalog %} 
-    <div class="item-block" style="margin:5%;">
-      <p>
-       <img class="image01" src="http://45.55.24.80:3002/static/{{ image|safe  }}" alt="Smiley face" width="100%"/>
-       <div style="display:inline;margin:20px;padding:20px;">
+
+<div class="header-spacer"></div>
+    <div style="z-index:1;" class="item-block container-fluid" style="margin:5%;">
+      <div class="row">
+       <div class="col-md"></div>
+       <div class="col-sm">
+         <img class="image01 col-sm" src="http://45.55.24.80:3002/static/{{ image|safe  }}" alt="Smiley face" width="100%"/>
+       </div>
+       <div class="col-sm">
         <h5 class="info">{{ title|e }}</h6>
+        <span class="price1">$16 for 60ml, $30 for 120ml</span>
         <p class="info split">{{ description|e }} </p>
           {% for flavor in flavors %}
              <span class="info">-{{ flavor|e }}</span></br>
           {% endfor %}
         </p>
        </div>
-      </p>
+       <div class="col-sm"></div>
+      </div>
     </div>
 {% endfor %}
    </div>
